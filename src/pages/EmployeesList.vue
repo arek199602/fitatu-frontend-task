@@ -17,7 +17,9 @@
                 <td>{{employee.address.street}} {{employee.address.suite}} {{employee.address.city}}</td>
                 <td>{{employee.phone}}</td>
                 <td><a :href="`mailto:${ employee.email }`">{{employee.email}}</a></td>
-                <td><edit-button></edit-button></td>
+                <td><router-link :to="{name: 'EmployeeForm', params: {id: employee.id}}">
+                    <edit-button></edit-button>
+                </router-link></td>
             </tr>
         </table>
     </div>
