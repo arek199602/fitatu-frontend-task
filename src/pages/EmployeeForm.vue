@@ -4,6 +4,10 @@
       <input type="email" id="email" placeholder="example@wp.pl"
              v-model="employee.email">
 
+      <label for="phone">Phone</label>
+      <input type="email" id="phone" placeholder="123123123"
+           v-model="employee.phone">
+
       <label for="name">Name</label>
       <input id="name" type="text" placeholder="John Deer"
              v-model="employee.name">
@@ -49,6 +53,7 @@
     axios.patch(`https://jsonplaceholder.typicode.com/users/${this.$route.params.id}`,{
      email: this.employee.email,
      name: this.employee.name,
+     phone: this.employee.phone,
      address: {
       city: this.employee.address.city,
        street: this.employee.address.street,
