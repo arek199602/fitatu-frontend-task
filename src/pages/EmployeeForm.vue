@@ -20,7 +20,7 @@
       <input id="city" type="text" placeholder="City"
              v-model="employee.address.city">
 
-    <button @click="updateEmployee()">Submit Employee</button>
+    <button @click.prevent="updateEmployee()">{{buttonText}}</button>
   </form>
 </template>
 
@@ -31,14 +31,21 @@
   name: "EmployeeForm",
   data() {
    return {
-    loading: false
+    loading: false,
+    text: {
+     submit: 'Submit employee',
+     update: 'Updating'
+    },
+    buttonText: ''
    }
   },
   created() {
+   this.buttonText = this.text.submit
    this.fetchEmployee()
   },
   methods: {
    updateEmployee() {
+    this.buttonText = this.text.update
     axios.patch(`https://jsonplaceholder.typicode.com/users/${this.$route.params.id}`,{
      email: this.employee.email,
      name: this.employee.name,
@@ -49,6 +56,7 @@
       }
     })
     .then(({data}) => {
+     this.buttonText = this.text.submit
      console.log(data)
     })
    },

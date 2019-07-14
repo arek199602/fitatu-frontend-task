@@ -67,6 +67,7 @@
         }
         @media screen and (max-width: 768px) {
           display: flex;
+          visibility: visible;
         }
       }
       #menu {
