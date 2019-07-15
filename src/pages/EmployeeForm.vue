@@ -36,6 +36,7 @@
   data() {
    return {
     loading: false,
+    employee: null,
     text: {
      submit: 'Submit employee',
      update: 'Updating'
